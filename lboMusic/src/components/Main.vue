@@ -1,15 +1,19 @@
 <template>
-  <div>
+  <div id="main-box">
      <n-space vertical>
       <n-space> <n-switch v-model:value="inverted" />inverted</n-space>
-      <n-layout has-sider>
+      <n-layout
+        has-sider
+        class="main-layout"
+      >
         <n-layout-sider
           bordered
           collapse-mode="width"
           :collapsed-width="64"
-          :width="240"
+          :width="200"
           show-trigger
           :inverted="inverted"
+          
         >
           <n-menu
             :inverted="inverted"
@@ -19,7 +23,7 @@
           />
         </n-layout-sider>
         <n-layout>
-          <span>内容</span>
+          <span><b>菩萨蛮・大柏地<br/>毛泽东<br/></b>赤橙黄绿青蓝紫，谁持彩练当空舞？<br/>雨后复斜阳，关山阵阵苍。<br/>当年鏖战急，弹洞前村壁，装点此关山，今朝更好看。</span>
         </n-layout>
       </n-layout>
     </n-space>
@@ -31,10 +35,12 @@
 import { h, defineComponent, ref } from "vue";
 import { NIcon } from "naive-ui";
 import {
-  BookOutline as BookIcon,
-  PersonOutline as PersonIcon,
-  WineOutline as WineIcon,
-  DiscSharp as DiskIcon
+  PlanetOutline as PlanetIcon,
+  DiscOutline as DiskIcon,
+  GlassesOutline as GlassIcon,
+  GlassesSharp as GlassSharpIcon,
+  DownloadSharp as DownloadIcon,
+  Recording as LaughIcon
 } from "@vicons/ionicons5";
 
 function renderIcon(icon) {
@@ -43,74 +49,34 @@ function renderIcon(icon) {
 
 const menuOptions = [
   {
-    label: "且听风吟",
-    key: "hear-the-wind-sing",
+    label: "每日推荐",
+    key: "daily-recommend",
     icon: renderIcon(DiskIcon)
   },
   {
-    label: "1973年的弹珠玩具",
-    key: "pinball-1973",
-    icon: renderIcon(BookIcon),
-    disabled: true,
-    children: [
-      {
-        label: "鼠",
-        key: "rat"
-      }
-    ]
+    label: "歌曲搜索",
+    key: "songs-search",
+    icon: renderIcon(PlanetIcon)
   },
   {
-    label: "寻羊冒险记",
-    key: "a-wild-sheep-chase",
-    disabled: true,
-    icon: renderIcon(BookIcon)
-  },
-  {
-    label: "舞，舞，舞",
-    key: "dance-dance-dance",
-    icon: renderIcon(BookIcon),
+    label: "我的音乐",
+    key: "my-music",
+    icon: renderIcon(GlassIcon),
     children: [
       {
-        type: "group",
-        label: "人物",
-        key: "people",
-        children: [
-          {
-            label: "叙事者",
-            key: "narrator",
-            icon: renderIcon(PersonIcon)
-          },
-          {
-            label: "羊男",
-            key: "sheep-man",
-            icon: renderIcon(PersonIcon)
-          }
-        ]
+        label: "本地与下载",
+        key: "download",
+        icon: renderIcon(DownloadIcon)
       },
       {
-        label: "饮品",
-        key: "beverage",
-        icon: renderIcon(WineIcon),
-        children: [
-          {
-            label: "威士忌",
-            key: "whisky"
-          }
-        ]
+        label: "坠吼的",
+        key: "best",
+        icon: renderIcon(GlassSharpIcon),
       },
       {
-        label: "食物",
-        key: "food",
-        children: [
-          {
-            label: "三明治",
-            key: "sandwich"
-          }
-        ]
-      },
-      {
-        label: "过去增多，未来减少",
-        key: "the-past-increases-the-future-recedes"
+        label: "谈笑风生",
+        key: "the-past-increases-the-future-recedes",
+        icon: renderIcon(LaughIcon)
       }
     ]
   }
