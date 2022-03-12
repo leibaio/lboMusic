@@ -21,6 +21,7 @@
             :collapsed-icon-size="22"
             :options="menuOptions"
           />
+          
         </n-layout-sider>
         <n-layout>
           <router-view></router-view>
@@ -34,6 +35,7 @@
 <script>
 import { h, defineComponent, ref } from "vue";
 import { NIcon } from "naive-ui";
+import { RouterLink } from 'vue-router'
 import {
   PlanetOutline as PlanetIcon,
   DiscOutline as DiskIcon,
@@ -43,20 +45,45 @@ import {
   Recording as LaughIcon
 } from "@vicons/ionicons5";
 
+
 function renderIcon(icon) {
   return () => h(NIcon, null, { default: () => h(icon) });
 }
 
 const menuOptions = [
   {
-    label: "每日推荐",
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: 'content',
+            params: {
+              lang: 'zh-CN'
+            }
+          }
+        },
+        { default: () => '每日推荐' }
+      ),
     key: "daily-recommend",
     icon: renderIcon(DiskIcon),
   },
   {
-    label: "歌曲搜索",
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: 'search',
+            params: {
+              lang: 'zh-CN'
+            }
+          }
+        },
+        { default: () => '歌曲搜索' }
+      ),
     key: "songs-search",
-    icon: renderIcon(PlanetIcon)
+    icon: renderIcon(PlanetIcon),
   },
   {
     label: "我的音乐",
