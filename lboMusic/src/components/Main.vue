@@ -13,7 +13,7 @@
           :width="200"
           show-trigger
           :inverted="inverted"
-          
+         
         >
           <n-menu
             :inverted="inverted"
@@ -23,8 +23,7 @@
           />
         </n-layout-sider>
         <n-layout>
-          <span><b>菩萨蛮・大柏地<br/>毛泽东<br/></b>赤橙黄绿青蓝紫，谁持彩练当空舞？<br/>雨后复斜阳，关山阵阵苍。<br/>当年鏖战急，弹洞前村壁，装点此关山，今朝更好看。</span>
-          
+          <router-view></router-view>
         </n-layout>
       </n-layout>
     </n-space>
@@ -52,7 +51,7 @@ const menuOptions = [
   {
     label: "每日推荐",
     key: "daily-recommend",
-    icon: renderIcon(DiskIcon)
+    icon: renderIcon(DiskIcon),
   },
   {
     label: "歌曲搜索",

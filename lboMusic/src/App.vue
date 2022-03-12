@@ -6,7 +6,6 @@ import Main from './components/Main.vue'
 
 <template>
   <div id="app">
-
     <Background></Background>
     <Top></Top>
     <Main></Main>
